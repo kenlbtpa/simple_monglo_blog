@@ -6,24 +6,33 @@
         <h4 class="modal-title" id="myModalLabel">Register</h4>
       </div>
       <div class="modal-body">
+
+        <%= form_for :user  :html => {:class => 'form' }  do |f| %>
+
         <form class="form">
+
           <div class="form-group" >
-            <label for="registerNickname" >Nickname</label>
-            <input id="registerNickname" class="form-control" name="nickname" placeholder="Your Nickname" />
+            <%= f.label :nickname %><br>
+            <%= f.text_field :html => {:class =>'form-control' , :placeholder => "Your nickname"} :nickname %>
           </div>
+
           <div class="form-group" >
-            <label for="registerEmail" >Email</label>
-            <input id="registerEmail" class="form-control" name="email" placeholder="Your Email" />
+            <%= f.label :Email %><br>
+            <%= f.text_field :html => {:class =>'form-control' , :placeholder => "Your Email"} :email %>
           </div>
+
           <div class="form-group" >
-            <label for="registerPassword" >Password</label>
-            <input id="registerPassword" class="form-control" type="password" name="password" placeholder="Your password" />
+            <%= f.label :password %><br>
+            <%= f.password_field :html => {:class =>'form-control' , :placeholder => "Your Password"} :password_field %>
           </div>
+
           <div class="form-group" >
-            <label for="registerCPassword" >Confirm Password</label>
-            <input id="registerCPassword" class="form-control" type="cpassword" name="password" placeholder="Your password" />
+            <%= f.label :password_confirmation %><br>
+            <%= f.password_field :html => {:class =>'form-control' , :placeholder => "Your Password Again"} :password_confirmation %>
           </div>
-        </form>
+
+        <% end %>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
