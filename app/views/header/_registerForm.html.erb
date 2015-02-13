@@ -9,6 +9,10 @@
 
         <%= form_for :user , method: "post" , url: "user/create" , html: { id: "registerForm" , class: 'form' }  do |f| %>
 
+          <div class="ajaxErrors">
+            
+          </div>
+
           <div class="form-group" >
             <%= label( f , :nickname ) %><br>
             <%= text_field( f , :nickname , class: 'form-control' , placeholder: "Your nickname" , name: "nickname" ) %>
