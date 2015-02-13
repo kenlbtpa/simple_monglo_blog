@@ -5,6 +5,8 @@ $(document).bind("ajaxSend", function(elm, xhr, s){
    }
 });
 
+function getCSRF(){ return $("meta[name=csrf-token]").attr("content"); }
+
 
 function buildFormData(caller, params){
 	var form = $(caller).is("form") ? $(caller) : $(this).closest("form");
@@ -13,7 +15,7 @@ function buildFormData(caller, params){
 		if(v.length === 0) return prev;
 		prev[ arr[i] ] = v.val(); return prev;  
 	} , {} );
-	data["CSRF"] = getCSRFTokenValue();  	
+	data["CSRF"] = getCSRF();  	
 	return data; 
 }
 
