@@ -15,7 +15,7 @@
           </div>
 
           <div class="form-group" >
-            <%= label( f , :Email ) %><br>
+            <%= label( f , :email ) %><br>
             <%= text_field( f , :email , class: 'form-control' , placeholder: "Your email" ) %>
           </div>
 
@@ -26,8 +26,8 @@
 
 
           <div class="form-group" >
-            <%= label( f , :password_confirmation ) %><br>
-            <%= password_field( f , :password_confirmation , class: 'form-control' , placeholder: "Your password_confirmation" ) %>
+            <%= label( f , :password_confirmation , "Password Confirmation" ) %><br>
+            <%= password_field( f , :password_confirmation , class: 'form-control' , placeholder: "Your Confirmation" ) %>
           </div>  
 
         <% end %>
