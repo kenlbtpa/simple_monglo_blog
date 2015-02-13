@@ -1,6 +1,10 @@
 function login(caller){
 	var form = $(this).closest("form"); 
 	var params = [ "email" , "password" ]; 
-	var data = params.reduce(function(prev, curr, i , arr){ curr["email"] = form.find( "[name~="+ arr[i] +"]" ); return curr;  } , {} );
+	var data = params.reduce(function(prev, curr, i , arr){ 
+		var v =form.find( "[name~="+ arr[i] +"]" );  
+		if(v.length > 0) return curr;
+		curr[ arr[i] ] = .val(); return curr;  
+	} , {} );
 	console.log(data);  
 }
