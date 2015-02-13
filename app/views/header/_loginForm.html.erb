@@ -11,12 +11,12 @@
 
           <div class="form-group" >
             <%= label( f , :email ) %><br>
-            <%= text_field( f , :email , class: 'form-control' , placeholder: "Your email" ) %>
+            <%= text_field( f , :email , class: 'form-control' , placeholder: "Your email" , name: "email" ) %>
           </div>
 
           <div class="form-group" >
             <%= label( f , :password ) %><br>
-            <%= text_field( f , :password , class: 'form-control' , placeholder: "Your password" ) %>
+            <%= text_field( f , :password , class: 'form-control' , placeholder: "Your password" name: "password" ) %>
           </div>
 
         <% end %>
