@@ -15,19 +15,20 @@
           </div>
 
           <div class="form-group" >
-            <%= f.label :email %><br>
-            <%= f.text_field , :class => 'form-control' , placeholder: "Your Email" :email %>
+            <%= label( f , :Email ) %><br>
+            <%= text_field( f , :email , class: 'form-control' , placeholder: "Your email" ) %>
           </div>
 
-          <div class="form-group" >
-            <%= f.label :password %><br>
-            <%= f.password_field , class: 'form-control' , placeholder: "Your Password" :password_field %>
-          </div>
 
           <div class="form-group" >
-            <%= f.label :password_confirmation %><br>
-            <%= f.password_field class: 'form-control' , :placeholder => "Your Password Again" :password_confirmation %>
-          </div>
+            <%= label( f , :password_field ) %><br>
+            <%= password_field( f , :password , class: 'form-control' , placeholder: "Your password" ) %>
+
+
+          <div class="form-group" >
+            <%= label( f , :password_confirmation ) %><br>
+            <%= password_field( f , :password_confirmation , class: 'form-control' , placeholder: "Your password_confirmation" ) %>
+          </div>  
 
         <% end %>
 
