@@ -7,28 +7,26 @@
       </div>
       <div class="modal-body">
 
-        <%= form_for :user  :html => {:class => 'form' }  do |f| %>
-
-        <form class="form">
+        <%= form_for :user , class: 'form' do |f| %>
 
           <div class="form-group" >
             <%= f.label :nickname %><br>
-            <%= f.text_field :html => {:class =>'form-control' , :placeholder => "Your nickname"} :nickname %>
+            <%= f.text_field , class: 'form-control' , placeholder: "Your nickname" :nickname %>
           </div>
 
           <div class="form-group" >
             <%= f.label :Email %><br>
-            <%= f.text_field :html => {:class =>'form-control' , :placeholder => "Your Email"} :email %>
+            <%= f.text_field , class: 'form-control' , placeholder: "Your Email" :email %>
           </div>
 
           <div class="form-group" >
             <%= f.label :password %><br>
-            <%= f.password_field :html => {:class =>'form-control' , :placeholder => "Your Password"} :password_field %>
+            <%= f.password_field , class: 'form-control' , placeholder: "Your Password" :password_field %>
           </div>
 
           <div class="form-group" >
             <%= f.label :password_confirmation %><br>
-            <%= f.password_field :html => {:class =>'form-control' , :placeholder => "Your Password Again"} :password_confirmation %>
+            <%= f.password_field class: 'form-control' , :placeholder => "Your Password Again" :password_confirmation %>
           </div>
 
         <% end %>
