@@ -32,6 +32,7 @@ function register(caller){
 	$.ajax({
 		url: form.attr("action"), 
 		type: form.attr("method"), 
+		data: data,
 		error: function(jqxhr, response, status){ console.log(jqxhr, response, status); }, 
 		success: function(response){
 			console.log(response); 
