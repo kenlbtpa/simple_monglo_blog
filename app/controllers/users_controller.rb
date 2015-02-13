@@ -5,6 +5,16 @@ class UsersController < ApplicationController
 
 	def new
 		#Login
+		@user = User.first( email: params[:email] )
+		if @user === nil
+			render json: [ status: false , error: "Invalid username or password" ] and return 
+		elsif @user.pass === BCrypt::Engine.hash_secret( params[:password] , @user.pass_salt )
+			# Login Success
+			session[:user_id] = @user._id
+			render json:[ status: true , message: "Your are now logged in." ] and return
+		else
+			render json: [ status: false , error: "Invalid username or password" ] and return
+		end
 	end
 
 	def create
