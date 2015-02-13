@@ -1,7 +1,7 @@
 class User
   include MongoMapper::Document
 
-  before_save :processUser
+  before_validation :processUser
 
   key :nickname, String	, :required => true
   key :email, String	, :format => MongoBlog::Application::EMAIL_REGEX , :required => true
@@ -16,13 +16,18 @@ class User
   private
 
   def processUser
-  	self.pass_salt = BCrypt::Engine.generate_salt
-  	self.pass = BCrypt::Engine.hash_secret( self.pass , self.pass_salt )
+  	
+  	if self.pass_salt === nil
+	  	self.pass_salt = BCrypt::Engine.generate_salt
+	  	self.pass = BCrypt::Engine.hash_secret( self.pass , self.pass_salt )
+	end
+  	
   	if self.created_at === nil
   		self.created_at = Time.now
   	end
 	if self.updated_at === nil  	
 	  	self.created_at = Time.now
   	end
+  
   end
 end
