@@ -10,7 +10,7 @@
         <%= form_for :user , class: 'form' do |f| %>
 
           <div class="form-group" >
-            <%= f.label :nickname %><br>
+            <%= label( f , :nickname ) %><br>
             <%= f.text_field , :class => 'form-control' , :placeholder => "Your nickname" , :nickname %>
           </div>
 
