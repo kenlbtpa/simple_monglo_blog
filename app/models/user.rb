@@ -4,7 +4,7 @@ class User
   before_create :processUser
 
   key :nickname, String	, :required => true
-  key :email, String	, :format => MongoBlog::Application.EMAIL_REGEX , :required => true
+  key :email, String	, :format => MongoBlog::Application::EMAIL_REGEX , :required => true
   key :pass, String		, :required => true
   key :pass_salt, String, :required => true
   key :perm, Integer	, :required => true , :default => 0
