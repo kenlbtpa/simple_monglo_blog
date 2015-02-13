@@ -32,5 +32,7 @@ config.generators do |g|
   g.orm :mongo_mapper
 end
 
+  EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+
   end
 end
