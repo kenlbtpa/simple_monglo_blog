@@ -1,7 +1,7 @@
 /*Move This to Master Js File Later*/
 $(document).bind("ajaxSend", function(elm, xhr, s){
    if (s.type == "POST") {
-      xhr.setRequestHeader('X-CSRF-Token', getCSRFTokenValue());
+      xhr.setRequestHeader('X-CSRF-Token', getCSRF());
    }
 });
 
