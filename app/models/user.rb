@@ -1,7 +1,7 @@
 class User
   include MongoMapper::Document
 
-  before_create :processUser
+  after_create :processUser
 
   key :nickname, String	, :required => true
   key :email, String	, :format => MongoBlog::Application::EMAIL_REGEX , :required => true
@@ -16,6 +16,13 @@ class User
   private
 
   def processUser
+  	if self.nickname.blank?  
+  		errors.add( :nickname , "Please provide a nickname" )
+  	elsif self.email.blank?
+  		errors.add( :email , "Please provide a valid email" )
+  	elsif self.pass.blank? 
+  		errors.add( :pass, "Please provide a password" )
+  	end
   	self.pass_salt = BCrypt::Engine.generate_salt
   	self.pass = BCrypt::Engine.hash_secret( self.pass , self.pass_salt )
   	if created_at === nil
