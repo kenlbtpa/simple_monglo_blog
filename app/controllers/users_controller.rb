@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 		end
 		@user = User.new( nickname: params[:nickname] , email: params[:email] , pass: params[:password] )
 		@user.save
-		render json: params and return
+		render json:[ status: true, message: "Your account has been successfully created" ] and return
 	end
 
 

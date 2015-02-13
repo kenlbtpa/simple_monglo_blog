@@ -33,9 +33,13 @@ function register(caller){
 		url: form.attr("action"), 
 		type: form.attr("method"), 
 		data: data,
-		error: function(jqxhr, response, status){ console.log(jqxhr, response, status); }, 
+		error: function(jqxhr, response, status){ 
+			console.log(jqxhr, response, status); 
+			form.find( ".ajaxErrors" ).html( "<span style='color:red' > Your request could not be processed. </span>" ); 
+		}, 
 		success: function(response){
-			console.log(response); 
+			form.find( ".ajaxErrors" ).html( "<span style='color:green' > Your account has been created. </span>" ); 
+			setTimeout( function(){ window.location.reload(); } , 2000 ); 
 		}
 	})
 }
