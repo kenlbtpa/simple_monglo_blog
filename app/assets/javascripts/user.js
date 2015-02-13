@@ -1,7 +1,5 @@
 function login(caller){ /*Expects either this or document.getElementbyId form */
-	console.log( "caller", caller ); 
-	var form = $(caller).is("form") ? caller : $(this).closest("form");
-	console.log( "form", form );  
+	var form = $(caller).is("form") ? $(caller) : $(this).closest("form");
 	var params = [ "email" , "password" ]; 
 	var data = params.reduce(function(prev, curr, i , arr){ 
 		var v = form.find( "[name="+ curr +"]" );  
