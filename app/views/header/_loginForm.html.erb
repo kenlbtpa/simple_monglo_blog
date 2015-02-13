@@ -7,7 +7,7 @@
       </div>
       <div class="modal-body">      
 
-        <%= form_for :user , class: 'form' , method: "post" , url: "user/new" , id: "loginForm" do |f| %>
+        <%= form_for :user , method: "post" , url: "user/new" , html: { id: "loginForm" , class: 'form' } do |f| %>
 
           <div class="form-group" >
             <%= label( f , :email ) %><br>
@@ -24,7 +24,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="login( document.getElementById('loginForm') );">Login</button>
+        <button type="button" class="btn btn-primary" onclick="login( $('') );">Login</button>
       </div>
     </div>
   </div>
