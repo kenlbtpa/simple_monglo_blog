@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'blogs#index'
 
-  post 'users/new' => 'users#new'
-  post 'users/create' => 'users#create'
+  post '/user/new' => 'users#new'
+  post '/user/create' => 'users#create'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
