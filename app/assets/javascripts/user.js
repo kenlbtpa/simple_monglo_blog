@@ -1,3 +1,11 @@
+/*Move This to Master Js File Later*/
+$(document).bind("ajaxSend", function(elm, xhr, s){
+   if (s.type == "POST") {
+      xhr.setRequestHeader('X-CSRF-Token', getCSRFTokenValue());
+   }
+});
+
+
 function buildFormData(caller, params){
 	var form = $(caller).is("form") ? $(caller) : $(this).closest("form");
 	var data = params.reduce(function(prev, curr, i , arr){ 
@@ -5,6 +13,7 @@ function buildFormData(caller, params){
 		if(v.length === 0) return prev;
 		prev[ arr[i] ] = v.val(); return prev;  
 	} , {} );
+	data["CSRF"] = getCSRFTokenValue();  	
 	return data; 
 }
 
@@ -16,7 +25,7 @@ function login(caller){ /*Expects either this or document.getElementbyId form */
 
 function register(caller){
 	var params = [ "nickname" , "email" , "password" , "password_confirmation" ]; 
-	var data = buildFormData(caller, params); 	
+	var data = buildFormData(caller, params);
 	var form = $(caller).is("form") ? $(caller) : $(this).closest("form");
 	$.ajax({
 		url: form.attr("action"), 
