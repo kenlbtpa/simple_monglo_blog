@@ -8,9 +8,9 @@ class User
   key :pass, String		, :required => true
   key :pass_salt, String, :required => true
   key :perm, Integer	, :required => true , :default => 0
-  key :created_at, Datetime	, :required => true 
-  key :updated_at, Datetime	, :required => true 
-  key :login_at, Datetime
+  key :created_at, Time	, :required => true 
+  key :updated_at, Time	, :required => true 
+  key :login_at, Time
 
 
   private
@@ -19,10 +19,10 @@ class User
   	self.pass_salt = BCrypt::Engine.generate_salt
   	self.pass = BCrypt::Engine.hash_secret( pass , pass_salt )
   	if created_at === nil
-  		self.created_at = DateTime.now
+  		self.created_at = Time.now
   	end
 	if updated_at === nil  	
-	  	self.created_at = DateTime.now
+	  	self.created_at = Time.now
   	end
   end
 end
