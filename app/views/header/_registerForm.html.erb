@@ -7,7 +7,7 @@
       </div>
       <div class="modal-body">
 
-        <%= form_for :user , class: 'form' do |f| %>
+        <%= form_for :user , method: "post" , url: "user/create" , html: { id: "registerForm" , class: 'form' }  do |f| %>
 
           <div class="form-group" >
             <%= label( f , :nickname ) %><br>
