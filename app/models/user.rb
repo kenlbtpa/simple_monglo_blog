@@ -17,7 +17,7 @@ class User
 
   def processUser
   	self.pass_salt = BCrypt::Engine.generate_salt
-  	self.pass = BCrypt::Engine.hash_secret( pass , pass_salt )
+  	self.pass = BCrypt::Engine.hash_secret( self.pass , self.pass_salt )
   	if created_at === nil
   		self.created_at = Time.now
   	end
