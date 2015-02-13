@@ -26,7 +26,7 @@ class User
   		self.created_at = Time.now
   	end
 	if self.updated_at === nil  	
-	  	self.created_at = Time.now
+	  	self.updated_at = Time.now
   	end
   
   end
