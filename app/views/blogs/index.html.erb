@@ -1,1 +1,8 @@
+<% if @blogs.empty? %>
+	<h3>No Blogs Here</h3>
+<% end %>
+<% @blogs.each do |@blog| %>
+	render "blogs/preview"
+<% end %>
+
 <%= @user.inspect %>
