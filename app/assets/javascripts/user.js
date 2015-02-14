@@ -20,6 +20,10 @@ function buildFormData(caller, params){
 }
 
 function login(caller){ /*Expects either this or document.getElementbyId form */
+
+	console.log('stable'); 
+	return false; 
+
 	var params = [ "email" , "password" ]; 
 	var data = buildFormData(caller, params); 
 	var form = $(caller).is("form") ? $(caller) : $(this).closest("form");
@@ -36,8 +40,6 @@ function login(caller){ /*Expects either this or document.getElementbyId form */
 			// setTimeout( function(){ window.location.reload(); } , 2000 ); 
 		}
 	}); 
-	console.log('stable'); 
-	return false; 
 }
 
 function register(caller){
@@ -58,5 +60,3 @@ function register(caller){
 		}
 	}); 
 }
-
-console.log('test'); 
