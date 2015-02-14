@@ -10,18 +10,18 @@
       <a class="navbar-brand" href="#">Mongo Blog</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
-      <%= if @user.nil?  %>
+      <% if @user.nil?  %>
         <%# Logged Out %>
         <form class="navbar-form navbar-right">
           <button type="button" class="btn btn-success" data-toggle="modal" data-target="#loginModal" >Sign in</button>
           <button type="button" class="btn btn-info" data-toggle="modal" data-target="#registerModal">Register</button>
         </form>
-      <%= else %>
+      <% else %>
       <%# Logged In %>
         <form class="navbar-form navbar-right" action="user/destroy" >
           <button type="submit" class="btn btn-danger"  >Logout</button>
         </form>
-      <%= end %>      
+      <% end %>      
     </div><!--/.navbar-collapse -->
   </div>
 </nav>
