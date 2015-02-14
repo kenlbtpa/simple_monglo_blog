@@ -14,6 +14,6 @@
 /*Desktop*/
 media="all"
 @media (min-width: 1200px)
-nav.nav-bar .container{
+nav.navbar .container{
 	width:80% !important;
 }
