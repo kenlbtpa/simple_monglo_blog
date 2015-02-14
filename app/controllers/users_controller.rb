@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 			render json: [ status: false , error: "Passwords are not the same." ] and return
 		end
 		@user = User.new( nickname: params[:nickname] , email: params[:email] , pass: params[:password] )
-		if @user.save
+		if !@user.save
 			render json:[ status: false, error: @user.errors.full_messages ] and return
 		end
 		render json:[ status: true, message: "Your account has been successfully created" ] and return
