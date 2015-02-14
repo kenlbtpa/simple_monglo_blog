@@ -4,7 +4,7 @@ class User
   before_validation :processUser
 
   key :nickname, String	, :required => true
-  key :email, String	, :format => MongoBlog::Application::EMAIL_REGEX , :required => true
+  key :email, String	, :format => MongoBlog::Application::EMAIL_REGEX , :required => true , :unique => true
   key :pass, String		, :required => true
   key :pass_salt, String, :required => true
   key :perm, Integer	, :required => true , :default => 0
@@ -25,7 +25,7 @@ class User
   	if self.created_at === nil
   		self.created_at = Time.now
   	end
-    
+
   	if self.updated_at === nil  	
   	  	self.updated_at = Time.now
   	end
