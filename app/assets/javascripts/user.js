@@ -32,9 +32,7 @@ function login(caller){ /*Expects either this or document.getElementbyId form */
 			console.log(jqxhr, response, status); 
 			form.find( ".ajaxErrors" ).html( "<span style='color:red' > Your request could not be processed. </span>" ); 
 		}, 
-		success: function(response){
-			try{ var data = JSON.parse(response); }catch(e){ console.log(response); form.find( ".ajaxErrors" ).html( "<span style='color:red' > Your request could not be processed. </span>" ); } 
-
+		success: function(data){
 			if( data['status'] ){
 				form.find( ".ajaxErrors" ).html( "<span style='color:green' > Your are now logged in. </span>" ); 
 				setTimeout( function(){ window.location.reload(); } , 2000 ); 
@@ -57,9 +55,7 @@ function register(caller){
 			console.log(jqxhr, response, status); 
 			form.find( ".ajaxErrors" ).html( "<span style='color:red' > Your request could not be processed. </span>" ); 
 		}, 
-		success: function(response){
-			try{ var data = JSON.parse(response); }catch(e){ console.log(response); form.find( ".ajaxErrors" ).html( "<span style='color:red' > Your request could not be processed. </span>" ); } 
-
+		success: function(data){
 			if( data['status'] ){
 				form.find( ".ajaxErrors" ).html( "<span style='color:green' > Your account has been created. </span>" ); 
 				setTimeout( function(){ window.location.reload(); } , 2000 ); 
