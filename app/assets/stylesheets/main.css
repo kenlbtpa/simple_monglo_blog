@@ -12,7 +12,8 @@
 /*Mobile*/
 
 /*Desktop*/
-@media (min-width: 1200px)
-nav .container{
-	width:80% !important;
+@media screen and (max-width: 300px){
+	nav .container{
+		width:80% !important;
+	}	
 }
