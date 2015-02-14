@@ -21,9 +21,6 @@ function buildFormData(caller, params){
 
 function login(caller){ /*Expects either this or document.getElementbyId form */
 
-	console.log('stable'); 
-	return false; 
-
 	var params = [ "email" , "password" ]; 
 	var data = buildFormData(caller, params); 
 	var form = $(caller).is("form") ? $(caller) : $(this).closest("form");
