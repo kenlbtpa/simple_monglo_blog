@@ -36,6 +36,8 @@ function login(caller){ /*Expects either this or document.getElementbyId form */
 			setTimeout( function(){ window.location.reload(); } , 2000 ); 
 		}
 	}); 
+	console.log('stable'); 
+	return false; 
 }
 
 function register(caller){
