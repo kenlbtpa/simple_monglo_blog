@@ -7,3 +7,13 @@
 	width:80%;
 	border:1px solid #888;
 }
+
+
+/*Mobile*/
+
+/*Desktop*/
+media="all"
+@media (min-width: 1200px)
+nav.nav-bar .container{
+	width:80% !important;
+}
