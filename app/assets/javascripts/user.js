@@ -32,7 +32,9 @@ function login(caller){ /*Expects either this or document.getElementbyId form */
 			console.log(jqxhr, response, status); 
 			form.find( ".ajaxErrors" ).html( "<span style='color:red' > Your request could not be processed. </span>" ); 
 		}, 
-		success: function(data){
+		success: function(response){
+			console.log(response);
+			var data = response[0];  
 			if( data['status'] ){
 				form.find( ".ajaxErrors" ).html( "<span style='color:green' > Your are now logged in. </span>" ); 
 				setTimeout( function(){ window.location.reload(); } , 2000 ); 
