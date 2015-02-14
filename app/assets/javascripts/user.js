@@ -33,7 +33,7 @@ function login(caller){ /*Expects either this or document.getElementbyId form */
 		}, 
 		success: function(response){
 			form.find( ".ajaxErrors" ).html( "<span style='color:green' > Your are now logged in. </span>" ); 
-			setTimeout( function(){ window.location.reload(); } , 2000 ); 
+			// setTimeout( function(){ window.location.reload(); } , 2000 ); 
 		}
 	}); 
 	console.log('stable'); 
@@ -58,3 +58,5 @@ function register(caller){
 		}
 	}); 
 }
+
+console.log('test'); 
