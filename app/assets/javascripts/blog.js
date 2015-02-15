@@ -2,11 +2,16 @@ function blog_create(caller){ /*Expects either this or document.getElementbyId f
 	var params = [ "title" , "content" , "image" ]; 
 	var data = buildFormData(caller, params); 
 	var form = $(caller).is("form") ? $(caller) : $(this).closest("form");
+
+	var formData = new FormData(this); 
+	for(var i in data){ formData.append( i , data[i] ); }
+
 	$.ajax({
 		url: form.attr("action"), 
 		type: form.attr("method"), 
-		data: data,
+		data: formData,
 		processData: false, 
+		contentType: false , 
 		error: function(jqxhr, response, status){ 
 			console.log(jqxhr, response, status); 
 			form.find( ".ajaxErrors" ).html( "<span style='color:red' > Your request could not be processed. </span>" ); 
