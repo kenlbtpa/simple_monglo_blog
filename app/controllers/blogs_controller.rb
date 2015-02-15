@@ -19,16 +19,17 @@ class BlogsController < ApplicationController
 			# image = params[:image]
 
 			image_io = params[:image]
+			render json:[ status: false, error: res ] and return
+			
 			accepted_formats = [".jpg", ".png" ]
 			if !accepted_formats.include? image_io.content_type
 				render json:[ status: false, error: "Only jpg and png files are accepted." ] and return
 			end			
-			
+
 
 			res = FileMagic.new( FileMagic::MAGIC_MIME ).file( image_io )
 
 
-			render json:[ status: false, error: res ] and return
 
 			# p 
 
