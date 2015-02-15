@@ -1,5 +1,7 @@
 class BlogsController < ApplicationController
 
+	require 'filemagic'
+
 	def index
 		# @blogs = Blog.all
 		@blogs = Blog.all
@@ -17,10 +19,10 @@ class BlogsController < ApplicationController
 			# image = params[:image]
 
 			image_io = params[:image]
+			res = FileMagic.new( FileMagic::MAGIC_MIME ).file( image_io )
 
-			
 
-			render json:[ status: false, error: params[:image].inspect ] and return
+			render json:[ status: false, error: res ] and return
 
 			# p 
 
