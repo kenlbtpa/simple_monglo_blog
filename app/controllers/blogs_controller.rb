@@ -14,6 +14,8 @@ class BlogsController < ApplicationController
 			if @user.nil? 
 				render json: [ status: false , error: "Your are not logged in." ] and return 
 			end 
+			
+			render json:[ status: false, error: "Checking stuff" ] and return
 
 			@blog = Blog.new( title: params[:title] , content: params[:content] , blogger: @user._id )
 			if @blog.save(safe: true)

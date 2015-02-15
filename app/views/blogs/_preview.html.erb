@@ -1,6 +1,12 @@
 <%# blog = blog #reminder of blog %>
 <div class="blog preview">
 	<div class="header" >
-		<h4> <%= blog.inspect %> </h4>
+		<h4> <%= blog.title %> </h4>
+		<div>
+			<img src="<%= blog.previewImage() %>" class="img img-responsive" />
+		</div>
+		<div class="content">
+			<%= blog.contentSnippet() %>
+		</div>
 	</div>
 </div>

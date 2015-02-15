@@ -18,6 +18,11 @@
           </div>
 
           <div class="form-group" >
+            <%= label( f , :image ) %><br>
+            <%= file_field 'image' , 'datafile' %>            
+          </div>
+
+          <div class="form-group" >
             <%= label( f , :content ) %><br>
             <%= text_area( f , :content , class: 'form-control' , placeholder: "Your content" , name: "content" ) %>
           </div>

@@ -6,6 +6,7 @@ class Blog
   key :blogger, ObjectId , :required => true
   key :title, String , :required => true
   key :content, String , :required => true
+  key :image , String , :required => true
   key :created_at, Time , :required => true
   key :updated_at, Time , :required => true
 
@@ -25,7 +26,8 @@ class Blog
     if self.updated_at === nil  	
     	self.updated_at = Time.now
     end
-  
+
+
   end
 
 end
