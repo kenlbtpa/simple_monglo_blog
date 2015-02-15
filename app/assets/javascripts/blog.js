@@ -1,5 +1,5 @@
 function blog_create(caller){ /*Expects either this or document.getElementbyId form */
-	var params = [ "title" , "content" , "image[blog]" ]; 
+	var params = [ "title" , "content" , "image" ]; 
 	var data = buildFormData(caller, params); 
 	var form = $(caller).is("form") ? $(caller) : $(this).closest("form");
 	$.ajax({
