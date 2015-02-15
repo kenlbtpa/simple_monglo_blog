@@ -19,6 +19,12 @@ class BlogsController < ApplicationController
 			# image = params[:image]
 
 			image_io = params[:image]
+			accepted_formats = [".jpg", ".png" ]
+			if !accepted_formats.include? image_io.content_type
+				render json:[ status: false, error: "Only jpg and png files are accepted." ] and return
+			end			
+			
+
 			res = FileMagic.new( FileMagic::MAGIC_MIME ).file( image_io )
 
 
@@ -26,7 +32,6 @@ class BlogsController < ApplicationController
 
 			# p 
 
-			# accepted_formats = [".jpg", ".png"]
 			
 			# p image['datafile']
 			# p '\r\n'
@@ -34,9 +39,7 @@ class BlogsController < ApplicationController
 			# p '\r\n'
 			# p File.size( image['datafile'] )			
 
-			# if !accepted_formats.include? File.extname( image['datafile'] )
-			# 	render json:[ status: false, error: "Only jpg and png files are accepted." ] and return
-			# end
+
 
 			# if File.size( image['datafile'] )
 			# 	render json:[ status: false, error: "Only jpg and png files are accepted." ] and return
