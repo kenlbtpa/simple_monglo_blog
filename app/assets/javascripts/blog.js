@@ -1,10 +1,11 @@
 function blog_create(caller){ /*Expects either this or document.getElementbyId form */
-	var params = [ "title" , "content" , "image" ]; 
-	var data = buildFormData(caller, params); 
+	var params = [ "title" , "content" ]; 
+	var data = buildFormData(caller, params);
 	var form = $(caller).is("form") ? $(caller) : $(this).closest("form");
 
 	var formData = new FormData(this); 
 	for(var i in data){ formData.append( i , data[i] ); }
+	formData.append( 'image' , $('#createFormImage')[0].files[0] ); 
 
 	$.ajax({
 		url: form.attr("action"), 
