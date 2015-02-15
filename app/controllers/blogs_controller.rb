@@ -2,7 +2,7 @@ class BlogsController < ApplicationController
 
 	def index
 		# @blogs = Blog.all
-		@blogs = [1,2,3,4,5,6]
+		@blogs = Blog.all
 		@user = User.find( session[:user_id] )
 	end
 
@@ -25,6 +25,6 @@ class BlogsController < ApplicationController
 			render json:[ status: false, error: e.message ] and return
 		end
 
-		
+
 	end
 end

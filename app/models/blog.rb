@@ -13,17 +13,18 @@ class Blog
 
   def processBlog
   	
-	# Making Sure User exists
-	if User.find( blogger ) === nil
-		errors.add( :blogger , "Invalid Blogger" )
-	end
+  	# Making Sure User exists
+  	if User.find( blogger ) === nil
+  		errors.add( :blogger , "Invalid Blogger" )
+  	end
   	
-  	if self.created_at === nil
-  		self.created_at = Time.now
-  	end
-	if self.updated_at === nil  	
-	  	self.updated_at = Time.now
-  	end
+    if self.created_at === nil
+    	self.created_at = Time.now
+    end
+
+    if self.updated_at === nil  	
+    	self.updated_at = Time.now
+    end
   
   end
 
