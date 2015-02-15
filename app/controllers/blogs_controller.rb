@@ -19,8 +19,8 @@ class BlogsController < ApplicationController
 			# image = params[:image]
 
 			image_io = params[:image]
-			render json:[ status: false, error: res ] and return
-			
+			render json:[ status: false, error: image_io.content_type ] and return
+
 			accepted_formats = [".jpg", ".png" ]
 			if !accepted_formats.include? image_io.content_type
 				render json:[ status: false, error: "Only jpg and png files are accepted." ] and return
