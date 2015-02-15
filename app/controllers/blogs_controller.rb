@@ -7,6 +7,9 @@ class BlogsController < ApplicationController
 	end
 
 	def create
+
+		@user = User.find( session[:user_id] )
+
 		begin
 			if @user.nil? 
 				render json: [ status: false , error: "Your are not logged in." ] and return 
@@ -21,5 +24,7 @@ class BlogsController < ApplicationController
 		rescue => e
 			render json:[ status: false, error: e.message ] and return
 		end
+
+		
 	end
 end
