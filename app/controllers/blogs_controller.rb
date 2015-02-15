@@ -1,7 +1,5 @@
 class BlogsController < ApplicationController
 
-	require 'filemagic'
-
 	def index
 		# @blogs = Blog.all
 		@blogs = Blog.all
@@ -19,16 +17,14 @@ class BlogsController < ApplicationController
 			# image = params[:image]
 
 			image_io = params[:image]
-			render json:[ status: false, error: image_io.content_type ] and return
 
 			accepted_formats = ["image/jpg", "image/png" ]
 			if !accepted_formats.include? image_io.content_type
 				render json:[ status: false, error: "Only jpg and png files are accepted." ] and return
 			end			
 
-
-			res = FileMagic.new( FileMagic::MAGIC_MIME ).file( image_io )
-
+			res = image_io.size
+			render json:[ status: false, error: res ] and return
 
 
 			# p 
