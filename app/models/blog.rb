@@ -3,7 +3,7 @@ class Blog
 
   before_validation :processBlog
 
-  key :blogger, Integer , :required => true
+  key :blogger, ObjectId , :required => true
   key :title, String , :required => true
   key :content, String , :required => true
   key :created_at, Time , :required => true
