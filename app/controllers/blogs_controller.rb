@@ -14,15 +14,19 @@ class BlogsController < ApplicationController
 			if @user.nil? 
 				render json: [ status: false , error: "Your are not logged in." ] and return 
 			end 
-			image = params[:image]
+			# image = params[:image]
 
-			accepted_formats = [".jpg", ".png"]
+			render json:[ status: false, error: params.inspect ] and return
+
+			# p 
+
+			# accepted_formats = [".jpg", ".png"]
 			
-			p image['datafile']
-			p '\r\n'
-			p File.extname( image['datafile'] )
-			p '\r\n'
-			p File.size( image['datafile'] )			
+			# p image['datafile']
+			# p '\r\n'
+			# p File.extname( image['datafile'] )
+			# p '\r\n'
+			# p File.size( image['datafile'] )			
 
 			# if !accepted_formats.include? File.extname( image['datafile'] )
 			# 	render json:[ status: false, error: "Only jpg and png files are accepted." ] and return
