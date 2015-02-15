@@ -16,6 +16,10 @@ class BlogsController < ApplicationController
 			end 
 			# image = params[:image]
 
+			image_io = params[:image]
+
+			
+
 			render json:[ status: false, error: params[:image].inspect ] and return
 
 			# p 
