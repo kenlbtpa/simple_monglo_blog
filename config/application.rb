@@ -33,7 +33,7 @@ config.generators do |g|
 end
 
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
-  BLOG_IMAGE_DIRECTORY = "#{RAILS_ROOT}/apps/assets/images/blogs" )
+  BLOG_IMAGE_DIRECTORY = "#{RAILS_ROOT}/apps/assets/images/blogs"
 
   end
 end
