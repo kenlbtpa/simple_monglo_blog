@@ -28,10 +28,10 @@ class BlogsController < ApplicationController
 				render json:[ status: false, error: "Images can be at-most 10mb." ] and return
 			end
 
-				render json:[ status: false, error: BLOG_IMAGE_DIRECTORY ] and return
+				render json:[ status: false, error: MongoBlog::Application::BLOG_IMAGE_DIRECTORY ] and return
 
 			# Normally this goes to a cdn. Since this is a demo project, we'll store it on the local server. 
-			File.open( BLOG_IMAGE_DIRECTORY , 'wb' ){ |f| f.write( image_io.read ) }
+			File.open( MongoBlog::Application::BLOG_IMAGE_DIRECTORY , 'wb' ){ |f| f.write( image_io.read ) }
 
 			@blog = Blog.new( title: params[:title] , content: params[:content] , blogger: @user._id , image: "TEMP_PATH" )
 			if @blog.save(safe: true)
