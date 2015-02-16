@@ -30,7 +30,7 @@ class BlogsController < ApplicationController
 
 			require 'digest/sha1'
 
-			image_name = "#{@user._id}-#{image_io.path}-#{File.basename(f,File.extname(f))}-#{Time.now}"
+			image_name = "#{@user._id}-#{image_io.path}-#{File.basename( image_io.path ,File.extname( image_io.path ))}-#{Time.now}"
 
 			hash_name = Digest::SHA1.hexdigest(image_name)
 
