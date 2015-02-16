@@ -36,10 +36,11 @@ class BlogsController < ApplicationController
 
   			image_directory = "#{Rails.root}/apps/assets/images/blogs/#{hash_name}#{File.extname( image_io.path)}"
 
-			render json:[ status: false, error: image_directory ] and return
-
 			# Normally this goes to a cdn. Since this is a demo project, we'll store it on the local server. 
 			File.open( hash_name , 'wb' ){ |f| f.write( image_io.read ) }
+
+			render json:[ status: false, error: image_directory ] and return
+
 
 			@blog = Blog.new( title: params[:title] , content: params[:content] , blogger: @user._id , image: "TEMP_PATH" )
 			if @blog.save(safe: true)
