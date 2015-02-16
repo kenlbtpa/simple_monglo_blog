@@ -28,11 +28,18 @@ class BlogsController < ApplicationController
 				render json:[ status: false, error: "Images can be at-most 10mb." ] and return
 			end
 
-  			image_directory = "#{Rails.root}/apps/assets/images/blogs"
-			render json:[ status: false, error: image_directory ] and return
+			require 'digest/sha1'
+
+			image_name = "#{@user._id}-#{image_io.path}-#{File.basename(f,File.extname(f))}-#{Time.now}"
+
+			hash_name = Digest::SHA1.hexdigest(image_name)
+
+  			image_directory = "#{Rails.root}/apps/assets/images/blogs/#{image_path}/#{hash_name}"
+
+			render json:[ status: false, error: hash_name ] and return
 
 			# Normally this goes to a cdn. Since this is a demo project, we'll store it on the local server. 
-			File.open( MongoBlog::Application::BLOG_IMAGE_DIRECTORY , 'wb' ){ |f| f.write( image_io.read ) }
+			File.open( hash_name , 'wb' ){ |f| f.write( image_io.read ) }
 
 			@blog = Blog.new( title: params[:title] , content: params[:content] , blogger: @user._id , image: "TEMP_PATH" )
 			if @blog.save(safe: true)
