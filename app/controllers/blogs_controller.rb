@@ -34,7 +34,7 @@ class BlogsController < ApplicationController
 
 			hash_name = Digest::SHA1.hexdigest(image_name)
 
-  			image_directory = "#{Rails.root}/apps/assets/images/blogs/#{image_path}/#{hash_name}"
+  			image_directory = "#{Rails.root}/apps/assets/images/blogs/#{hash_name}"
 
 			render json:[ status: false, error: hash_name ] and return
 
