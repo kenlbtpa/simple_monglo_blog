@@ -34,7 +34,7 @@ class BlogsController < ApplicationController
 
 			hash_name = Digest::SHA1.hexdigest(image_name)
 
-  			image_directory = "/app/assets/images/#{hash_name}#{File.extname( image_io.path)}"
+  			image_directory = "./app/assets/images/#{hash_name}#{File.extname( image_io.path)}"
 
 			# Normally this goes to a cdn. Since this is a demo project, we'll store it on the local server. 
 			File.open( image_directory , 'wb' ){ |f| f.write( image_io.read ) }
