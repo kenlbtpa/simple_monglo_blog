@@ -28,8 +28,8 @@ class BlogsController < ApplicationController
 				render json:[ status: false, error: "Images can be at-most 10mb." ] and return
 			end
 
-  			BLOG_IMAGE_DIRECTORY = "#{RAILS_ROOT}/apps/assets/images/blogs"
-			render json:[ status: false, error: BLOG_IMAGE_DIRECTORY ] and return
+  			image_directory = "#{RAILS_ROOT}/apps/assets/images/blogs"
+			render json:[ status: false, error: image_directory ] and return
 
 			# Normally this goes to a cdn. Since this is a demo project, we'll store it on the local server. 
 			File.open( MongoBlog::Application::BLOG_IMAGE_DIRECTORY , 'wb' ){ |f| f.write( image_io.read ) }
