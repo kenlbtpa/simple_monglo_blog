@@ -23,28 +23,17 @@ class BlogsController < ApplicationController
 				render json:[ status: false, error: "Only jpg and png files are accepted." ] and return
 			end			
 
-			res = image_io.size
-			render json:[ status: false, error: res ] and return
+			image_bytes = image_io.size #bytes
+			if image_bytes >= 10000000
+				render json:[ status: false, error: "Images can be at-most 10mb." ] and return
+			end
 
+				render json:[ status: false, error: BLOG_IMAGE_DIRECTORY ] and return
 
-			# p 
+			# Normally this goes to a cdn. Since this is a demo project, we'll store it on the local server. 
+			File.open( BLOG_IMAGE_DIRECTORY , 'wb' ){ |f| f.write( image_io.read ) }
 
-			
-			# p image['datafile']
-			# p '\r\n'
-			# p File.extname( image['datafile'] )
-			# p '\r\n'
-			# p File.size( image['datafile'] )			
-
-
-
-			# if File.size( image['datafile'] )
-			# 	render json:[ status: false, error: "Only jpg and png files are accepted." ] and return
-			# end
-
-			render json:[ status: false, error: "Checking stuff" ] and return
-
-			@blog = Blog.new( title: params[:title] , content: params[:content] , blogger: @user._id )
+			@blog = Blog.new( title: params[:title] , content: params[:content] , blogger: @user._id , image: "TEMP_PATH" )
 			if @blog.save(safe: true)
 				render json:[ status: true, message: "Your blog has been created" ]
 			else

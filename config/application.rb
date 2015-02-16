@@ -33,6 +33,7 @@ config.generators do |g|
 end
 
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+  BLOG_IMAGE_DIRECTORY = Rails.root.join( 'apps' , 'assets' , 'images' , 'blogs' )
 
   end
 end
