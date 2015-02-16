@@ -30,13 +30,13 @@ class BlogsController < ApplicationController
 
 			require 'digest/sha1'
 
-			image_name = "#{@user._id}-#{image_io.path}-#{File.basename( image_io.path ,File.extname( image_io.path ))}-#{Time.now}"
+			image_name = "#{@user._id}-#{image_io.path}-#{File.basename( image_io.path)}-#{Time.now}"
 
 			hash_name = Digest::SHA1.hexdigest(image_name)
 
-  			image_directory = "#{Rails.root}/apps/assets/images/blogs/#{hash_name}"
+  			image_directory = "#{Rails.root}/apps/assets/images/blogs/#{hash_name}#{File.extname( image_io.path)}"
 
-			render json:[ status: false, error: hash_name ] and return
+			render json:[ status: false, error: image_directory ] and return
 
 			# Normally this goes to a cdn. Since this is a demo project, we'll store it on the local server. 
 			File.open( hash_name , 'wb' ){ |f| f.write( image_io.read ) }
