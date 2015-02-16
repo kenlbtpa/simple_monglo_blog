@@ -39,10 +39,7 @@ class BlogsController < ApplicationController
 			# Normally this goes to a cdn. Since this is a demo project, we'll store it on the local server. 
 			File.open( image_directory , 'wb' ){ |f| f.write( image_io.read ) }
 
-			render json:[ status: false, error: image_directory ] and return
-
-
-			@blog = Blog.new( title: params[:title] , content: params[:content] , blogger: @user._id , image: "TEMP_PATH" )
+			@blog = Blog.new( title: params[:title] , content: params[:content] , blogger: @user._id , image: image_directory )
 			if @blog.save(safe: true)
 				render json:[ status: true, message: "Your blog has been created" ]
 			else
